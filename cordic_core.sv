@@ -28,7 +28,7 @@ logic [B - 1 : 0] shift_l_out;
 logic [B - 1 : 0] addsub_r_out;
 logic [B - 1 : 0] addsub_l_out;
 logic [B - 1 : 0] mux_mid;
-logic [angle_len - 1 : 0] angle
+logic [angle_len - 1 : 0] angle;
 
 assign mux_l_out = c[1] ? {{ext_bits{data_w[msb_l]}},{data_w[msb_l :     msb_r + 1]}} : addsub_l_out;
 assign mux_r_out = c[1] ? {{ext_bits{data_w[msb_r]}},{data_w[msb_r : angle_len + 1]}} : addsub_r_out;
