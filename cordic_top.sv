@@ -12,8 +12,8 @@ module cordic_top #(
     output logic [2 * B - 1 : 0] data_r
 );
 
-logic [8 : 1] cnt;
-logic [$clog2(N) - 1 : 0] c;
+logic [8 : 1] c;
+logic [$clog2(N) - 1 : 0] cnt;
 
 
 cordic_core #(
