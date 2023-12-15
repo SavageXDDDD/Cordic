@@ -34,8 +34,8 @@ assign mux_l_out = c[1] ? {{ext_bits{data_w[msb_l]}},{data_w[msb_l : msb_r + 1]}
 assign mux_r_out = c[1] ? {{ext_bits{data_w[msb_r]}},{data_w[msb_r : angle_len]}} : addsub_r_out;
 assign shift_l_out = $signed (reg_l_out) >>> cnt;
 assign shift_r_out = $signed (reg_r_out) >>> cnt;
-assign addsub_l_out = angle[cnt]? $signed(reg_l_out - shift_l_out) : $signed(reg_l_out + shift_l_out);        
-assign addsub_r_out = angle[cnt]? $signed(reg_r_out - shift_r_out) : $signed(reg_r_out + shift_r_out);
+assign addsub_l_out = angle[cnt]? $signed(reg_l_out - shift_r_out) : $signed(reg_l_out + shift_r_out);        
+assign addsub_r_out = angle[cnt]? $signed(reg_r_out + shift_l_out) : $signed(reg_r_out - shift_l_out);
 assign mux_mid = c[5] ? addsub_r_out : addsub_l_out;
 
 register #(
